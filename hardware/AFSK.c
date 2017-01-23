@@ -499,6 +499,7 @@ ISR(ADC_vect) {
     TIFR1 = _BV(ICF1);
     AFSK_adc_isr(AFSK_modem, ((int16_t)((ADC) >> 2) - 128));
     if (hw_afsk_dac_isr) {
+        // set the outputs of the DAC (D4-D7) and close the PTT switch (D3)
         DAC_PORT = (AFSK_dac_isr(AFSK_modem) & 0xF0) | _BV(3); 
     } else {
         DAC_PORT = 128;

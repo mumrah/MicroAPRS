@@ -142,7 +142,7 @@ typedef struct Afsk
 
 #define AFSK_DAC_IRQ_START()   do { extern bool hw_afsk_dac_isr; hw_afsk_dac_isr = true; } while (0)
 #define AFSK_DAC_IRQ_STOP()    do { extern bool hw_afsk_dac_isr; hw_afsk_dac_isr = false; } while (0)
-#define AFSK_DAC_INIT()        do { DAC_DDR |= 0xF0; } while (0)
+#define AFSK_DAC_INIT()        do { DAC_DDR |= 0xF8; } while (0)
 
 // Here's some macros for controlling the RX/TX LEDs
 // THE _INIT() functions writes to the DDRB register
